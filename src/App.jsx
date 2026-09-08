@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ChevronDown, Folder, ArrowUp } from 'lucide-react';
 import { GitHubCalendar } from 'react-github-calendar';
+import SonarGrid from './SonarGrid';
 
 import './App.css';
 import avatarImg from './assets/avatar.jpg';
@@ -72,7 +73,14 @@ function App() {
         </a>
       </header>
 
-      <section className="min-h-dvh bg-neutral-950 flex flex-col justify-center items-center py-12 pt-28 pl-60 pr-60">
+      <SonarGrid
+        color="#e5e5e5"
+        baseOpacity={0.16}
+        spacing={30}
+        speed={220}
+        pingEvery={3.2}
+        className="min-h-dvh bg-neutral-950 flex flex-col justify-center items-center py-12 pt-28 pl-60 pr-60"
+      >
         <div className="w-80 h-80 mx-auto flex justify-center items-center mb-3 rounded-2xl">
           <img
             className="rounded-3xl w-64 h-64 object-cover border-neutral-100 border-4"
@@ -117,7 +125,18 @@ function App() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center pt-16">
+        <div className="flex flex-wrap items-center justify-center gap-2 pt-10 max-w-xl">
+          {['React', 'Tailwind', 'Node.js', 'Express', 'Git'].map((tech) => (
+            <span
+              key={tech}
+              className="text-xs font-medium text-neutral-300 border border-neutral-700 rounded-full px-3 py-1 bg-neutral-900/60 backdrop-blur-sm"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-center pt-10">
           <a
             className="inline-flex items-center justify-center gap-2 font-semibold text-neutral-100 border-2 border-neutral-100 rounded-lg py-2 px-4 hover:text-neutral-400 hover:border-neutral-400 cursor-pointer leading-none transition-colors"
             href="#stack"
@@ -126,7 +145,7 @@ function App() {
             <ChevronDown size={25} strokeWidth={2} />
           </a>
         </div>
-      </section>
+      </SonarGrid>
 
       <section
         id="stack"
