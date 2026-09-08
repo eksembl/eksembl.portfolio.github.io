@@ -1,45 +1,35 @@
 import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ChevronDown, Folder, ArrowUp } from 'lucide-react';
-import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiReact,
-  SiTailwindcss,
-  SiGit,
-  SiGithub,
-  SiExpress,
-  SiNodedotjs,
-  SiPython,
-} from 'react-icons/si';
 import { GitHubCalendar } from 'react-github-calendar';
 
 import './App.css';
 import avatarImg from './assets/avatar.jpg';
 
+// Icons served directly from the simpleicons.org CDN — no npm package required.
+// https://cdn.simpleicons.org/[slug]/[hex color, no #]
 const STACK_ROW1 = [
-  { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
-  { name: 'CSS3', icon: SiCss3, color: '#1572B6' },
-  { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
-  { name: 'React.js', icon: SiReact, color: '#61DAFB' },
-  { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#38BDF8' },
+  { name: 'HTML5', slug: 'html5', color: 'E34F26' },
+  { name: 'CSS3', slug: 'css', color: '1572B6' },
+  { name: 'JavaScript', slug: 'javascript', color: 'F7DF1E' },
+  { name: 'React.js', slug: 'react', color: '61DAFB' },
+  { name: 'Tailwind CSS', slug: 'tailwindcss', color: '38BDF8' },
 ];
 
 const STACK_ROW2 = [
-  { name: 'Git', icon: SiGit, color: '#F05032' },
-  { name: 'GitHub', icon: SiGithub, color: '#FFFFFF' },
-  { name: 'Node.js', icon: SiNodedotjs, color: '#5FA04E' },
-  { name: 'Express.js', icon: SiExpress, color: '#FFFFFF' },
-  { name: 'Python', icon: SiPython, color: '#3776AB' },
+  { name: 'Git', slug: 'git', color: 'F05032' },
+  { name: 'GitHub', slug: 'github', color: 'FFFFFF' },
+  { name: 'Node.js', slug: 'nodedotjs', color: '5FA04E' },
+  { name: 'Express.js', slug: 'express', color: 'FFFFFF' },
+  { name: 'Python', slug: 'python', color: '3776AB' },
 ];
 
 const repeatedIcons = (icons, repeat = 4) => Array.from({ length: repeat }).flatMap(() => icons);
 
-function IconBadge({ name, icon: Icon, color }) {
+function IconBadge({ name, slug, color }) {
   return (
     <div className="h-20 w-20 flex-shrink-0 rounded-full bg-neutral-900 border border-neutral-800 shadow-md flex items-center justify-center" title={name}>
-      <Icon size={32} style={{ color }} />
+      <img src={`https://cdn.simpleicons.org/${slug}/${color}`} alt={name} className="h-9 w-9" loading="lazy" />
     </div>
   );
 }
