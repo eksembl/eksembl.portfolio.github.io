@@ -51,9 +51,9 @@ function App() {
           href="https://github.com/eksembl"
           target="_blank"
           rel="noreferrer"
-          className="group border-4 text-neutral-100 border-neutral-100 py-2 px-4 rounded-lg font-semibold hover:text-neutral-400 hover:border-neutral-400 flex justify-center items-center gap-2 transition-colors"
+          className="group border-4 border-neutral-100 py-2 px-4 rounded-lg font-semibold hover:border-neutral-400 hover:opacity-80 flex justify-center items-center gap-2 transition-all"
         >
-          GitHub
+          <span className="bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-transparent">GitHub</span>
           <svg
             className="size-5 fill-neutral-100 group-hover:fill-neutral-400 transition-colors"
             role="img"
@@ -125,24 +125,13 @@ function App() {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-2 pt-10 max-w-xl">
-          {['React', 'Tailwind', 'Node.js', 'Express', 'Git'].map((tech) => (
-            <span
-              key={tech}
-              className="text-xs font-medium text-neutral-300 border border-neutral-700 rounded-full px-3 py-1 bg-neutral-900/60 backdrop-blur-sm"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
         <div className="flex items-center justify-center pt-10">
           <a
-            className="inline-flex items-center justify-center gap-2 font-semibold text-neutral-100 border-2 border-neutral-100 rounded-lg py-2 px-4 hover:text-neutral-400 hover:border-neutral-400 cursor-pointer leading-none transition-colors"
+            className="inline-flex items-center justify-center gap-2 font-semibold border-2 border-neutral-100 rounded-lg py-2 px-4 hover:border-neutral-400 hover:opacity-80 cursor-pointer leading-none transition-all"
             href="#stack"
           >
-            <span>My stack</span>
-            <ChevronDown size={25} strokeWidth={2} />
+            <span className="bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-transparent">My stack</span>
+            <ChevronDown size={25} strokeWidth={2} className="text-neutral-300" />
           </a>
         </div>
       </SonarGrid>
@@ -161,7 +150,17 @@ function App() {
           My Tech Stack
         </motion.h2>
 
-        <div className="mt-16 w-full max-w-5xl overflow-hidden relative pb-2">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          className="mt-4 text-neutral-400 text-center max-w-lg"
+        >
+          The tools and technologies I reach for daily, from markup to backend.
+        </motion.p>
+
+        <div className="mt-14 w-full max-w-5xl overflow-hidden relative pb-2">
           <div className="flex gap-8 whitespace-nowrap animate-scroll-left">
             {repeatedIcons(STACK_ROW1, 4).map((item, i) => (
               <IconBadge key={`row1-${i}`} {...item} />
@@ -176,6 +175,41 @@ function App() {
 
           <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-neutral-950 to-transparent pointer-events-none" />
           <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-neutral-950 to-transparent pointer-events-none" />
+        </div>
+
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
+          {[
+            {
+              title: 'Frontend',
+              items: ['HTML5 & CSS3 — Flexbox, Grid, adaptive layout', 'JavaScript (ES6+) — async, promises, modules', 'React.js — Hooks, state, props, API calls', 'Tailwind CSS — responsive styling'],
+            },
+            {
+              title: 'Backend',
+              items: ['Express.js / Node.js — routing, REST APIs', 'Python — scripting, working with data'],
+            },
+            {
+              title: 'Tools & Workflow',
+              items: ['Git & GitHub — version control, repos', 'Building and shipping pet projects', 'Styling components with Tailwind'],
+            },
+          ].map((group, i) => (
+            <motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: i * 0.15, ease: 'easeOut' }}
+              className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6 flex flex-col gap-3"
+            >
+              <h3 className="text-lg font-semibold text-neutral-100">{group.title}</h3>
+              <ul className="flex flex-col gap-2">
+                {group.items.map((item) => (
+                  <li key={item} className="text-sm text-neutral-400 leading-relaxed">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </div>
 
         <style>{`
@@ -197,19 +231,49 @@ function App() {
       </section>
 
       <section id="info" className="min-h-dvh bg-neutral-950 text-neutral-100 flex flex-col">
-        <div className="flex-1 flex flex-col justify-center items-center gap-8 px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold">Let&apos;s build something together</h2>
+        <div className="flex-1 flex flex-col justify-center items-center gap-8 px-8 py-24 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="text-3xl md:text-5xl font-bold bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-transparent"
+          >
+            Let&apos;s build something together
+          </motion.h2>
+
           <p className="text-neutral-400 max-w-md">
             Open to freelance projects, collaborations and full-time opportunities.
           </p>
+
           <a
             href="https://t.me/Mgll1337"
             target="_blank"
             rel="noreferrer"
-            className="border-2 border-neutral-100 rounded-lg py-2 px-6 font-semibold hover:bg-neutral-100 hover:text-neutral-950 transition-colors"
+            className="border-2 border-neutral-100 rounded-lg py-2 px-6 font-semibold hover:border-neutral-400 hover:opacity-80 transition-all"
           >
-            Get in touch
+            <span className="bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-transparent">Get in touch</span>
           </a>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 w-full max-w-2xl">
+            {[
+              { label: 'Focus', value: 'Full-Stack' },
+              { label: 'Stack', value: 'React & Node' },
+              { label: 'Status', value: 'Open to work' },
+            ].map((fact, i) => (
+              <motion.div
+                key={fact.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="rounded-xl border border-neutral-800 bg-neutral-900/60 py-4 px-3"
+              >
+                <p className="text-xs uppercase tracking-wide text-neutral-500">{fact.label}</p>
+                <p className="text-sm font-semibold text-neutral-100 mt-1">{fact.value}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <footer className="border-t border-neutral-800 py-8 px-8 flex flex-col items-center gap-5">
