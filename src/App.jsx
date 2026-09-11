@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { ChevronDown, Folder, ArrowUp } from 'lucide-react';
+import { ArrowUp, ChevronDown, Folder, X } from 'lucide-react';
 import { GitHubCalendar } from 'react-github-calendar';
 import SonarGrid from './SonarGrid';
 
@@ -35,7 +35,59 @@ function IconBadge({ name, slug, color }) {
   );
 }
 
+function ShowcaseModal({ open, onClose }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Showcase"
+    >
+      <div className="absolute inset-0 bg-neutral-950/80 backdrop-blur-sm" onClick={onClose} />
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
+        className="relative w-full max-w-md rounded-2xl border border-neutral-800 bg-neutral-900 p-6 shadow-xl"
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="cursor-pointer absolute right-4 top-4 text-neutral-400 hover:text-neutral-100 transition-colors"
+        >
+          <X size={20} />
+        </button>
+
+        <div className="flex items-center gap-3 mb-4">
+          <Folder className="text-neutral-100" size={28} strokeWidth={1.5} />
+          <h2 className="text-xl font-semibold text-neutral-100">Showcase</h2>
+        </div>
+
+        <p className="text-neutral-400 leading-relaxed">
+          This page is currently under development and is not available yet. Please check back
+          later.
+        </p>
+      </motion.div>
+    </div>
+  );
+}
+
 function App() {
+  const [showcaseOpen, setShowcaseOpen] = useState(false);
+
   useEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
@@ -46,7 +98,7 @@ function App() {
 
   return (
     <div id="top" className="font-sans scroll-smooth">
-      <header className="fixed top-0 inset-x-0 z-50 flex justify-between items-center gap-2 px-8 py-4 bg-neutral-950/80 backdrop-blur">
+      <header className="fixed top-0 inset-x-0 z-50 flex justify-between items-center gap-2 px-4 sm:px-8 py-4 bg-neutral-950/80 backdrop-blur">
         <a
           href="https://github.com/eksembl"
           target="_blank"
@@ -65,12 +117,13 @@ function App() {
           </svg>
         </a>
 
-        <a
-          href="#stack"
-          className="border-4 text-neutral-950 bg-neutral-100 border-neutral-100 py-2 px-4 rounded-lg font-semibold hover:bg-neutral-400 hover:border-neutral-400 flex items-center gap-2 transition-colors"
+        <button
+          type="button"
+          onClick={() => setShowcaseOpen(true)}
+          className="cursor-pointer border-4 text-neutral-950 bg-neutral-100 border-neutral-100 py-2 px-4 rounded-lg font-semibold hover:bg-neutral-400 hover:border-neutral-400 flex items-center gap-2 transition-colors"
         >
           Showcase <Folder size={20} />
-        </a>
+        </button>
       </header>
 
       <SonarGrid
@@ -79,7 +132,7 @@ function App() {
         spacing={30}
         speed={220}
         pingEvery={3.2}
-        className="min-h-dvh bg-neutral-950 flex flex-col justify-center items-center py-12 pt-28 pl-60 pr-60"
+        className="min-h-dvh bg-neutral-950 flex flex-col justify-center items-center px-4 py-12 pt-28 sm:px-12 lg:px-60"
       >
         <div className="w-80 h-80 mx-auto flex justify-center items-center mb-3 rounded-2xl">
           <img
@@ -94,8 +147,10 @@ function App() {
           <p className="text-gray-400">Full-Stack Developer</p>
         </div>
 
-        <div className="text-neutral-100 pb-3">
-          <GitHubCalendar username="eksembl" colorScheme="dark" />
+        <div className="text-neutral-100 pb-3 max-w-full overflow-x-auto">
+          <div className="mx-auto w-fit">
+            <GitHubCalendar username="eksembl" colorScheme="dark" />
+          </div>
         </div>
 
         <div className="flex flex-col items-center justify-center gap-5">
@@ -231,7 +286,7 @@ function App() {
       </section>
 
       <section id="info" className="min-h-dvh bg-neutral-950 text-neutral-100 flex flex-col">
-        <div className="flex-1 flex flex-col justify-center items-center gap-8 px-8 py-24 text-center">
+        <div className="flex-1 flex flex-col justify-center items-center gap-8 px-4 sm:px-8 py-16 sm:py-24 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -306,6 +361,8 @@ function App() {
           </div>
         </footer>
       </section>
+
+      <ShowcaseModal open={showcaseOpen} onClose={() => setShowcaseOpen(false)} />
     </div>
   );
 }
