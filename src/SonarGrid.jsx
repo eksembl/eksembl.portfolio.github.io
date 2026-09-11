@@ -36,7 +36,6 @@ export default function SonarGrid({
   const refreshRef = useRef(() => {});
 
   const opts = useRef({ spacing, dotRadius, baseOpacity, pingEvery, speed, ringWidth, amplitude, interactive, maxRings, seedPing, pingArea });
-  opts.current = { spacing, dotRadius, baseOpacity, pingEvery, speed, ringWidth, amplitude, interactive, maxRings, seedPing, pingArea };
 
   useEffect(() => {
     const host = hostRef.current;
@@ -218,8 +217,9 @@ export default function SonarGrid({
   }, []);
 
   useEffect(() => {
+    opts.current = { spacing, dotRadius, baseOpacity, pingEvery, speed, ringWidth, amplitude, interactive, maxRings, seedPing, pingArea };
     refreshRef.current();
-  }, [spacing, dotRadius, baseOpacity, color, pingEvery, speed, ringWidth, amplitude, interactive, maxRings, pingArea]);
+  }, [spacing, dotRadius, baseOpacity, color, pingEvery, speed, ringWidth, amplitude, interactive, maxRings, seedPing, pingArea]);
 
   return (
     <div

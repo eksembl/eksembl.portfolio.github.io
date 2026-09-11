@@ -69,7 +69,7 @@ function App() {
           href="#stack"
           className="border-4 text-neutral-950 bg-neutral-100 border-neutral-100 py-2 px-4 rounded-lg font-semibold hover:bg-neutral-400 hover:border-neutral-400 flex items-center gap-2 transition-colors"
         >
-          Show Case <Folder size={20} />
+          Showcase <Folder size={20} />
         </a>
       </header>
 
