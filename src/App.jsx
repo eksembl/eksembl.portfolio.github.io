@@ -149,7 +149,7 @@ function App() {
 
         <div className="text-neutral-100 pb-3 max-w-full overflow-x-auto">
           <div className="mx-auto w-fit">
-            <GitHubCalendar username="eksembl" colorScheme="dark" />
+            <GitHubCalendar username="eksembl" year={new Date().getFullYear()} colorScheme="dark" />
           </div>
         </div>
 
