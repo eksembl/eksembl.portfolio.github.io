@@ -2,6 +2,11 @@
 
 Personal portfolio website built with Vite and React.
 
+## Stack
+
+- React + Vite
+- Bun
+
 ## Development
 
 ```bash
