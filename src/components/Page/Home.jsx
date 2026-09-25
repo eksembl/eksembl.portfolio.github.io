@@ -65,7 +65,7 @@ function Home() {
 
                         {/* ROLE */}
                         <p className="mt-3 font-mono text-sm font-bold uppercase tracking-[0.25em] text-gray-500 md:text-base">
-                            Front-end Developer
+                            Junior Front-end Developer
                         </p>
 
                         {/* SOCIAL TITLE */}
