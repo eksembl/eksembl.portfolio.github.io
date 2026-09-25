@@ -19,7 +19,7 @@ export default function Projects() {
                 <br/>
                 <br/>
 
-                <div className=" flex flex-col justify-between items-center bg-white  rounded-xl border-4 border-black shadow-[8px_8px_0px_#111] max-w-xl w-full">
+                <div className=" flex flex-col justify-between items-center bg-white  rounded-xl border-4 border-black shadow-[8px_8px_0px_#111] max-w-xl w-full transition-all hover:-translate-y-1 hover:scale-105 hover:shadow-[12px_12px_0px_#111]">
                     <a
                         href="https://github.com/eksembl/medusa-v2_nova-poshta"
                         target="_blank"

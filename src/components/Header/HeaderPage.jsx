@@ -10,7 +10,7 @@ export default function HeaderPage() {
                     {/* HOME */}
                     <Link
                         to="/"
-                        className="group inline-flex items-center gap-2 border-2 border-gray-900 bg-white px-5 py-2.5 font-mono text-sm font-bold text-gray-900 shadow-[4px_4px_0px_#111] transition-all hover:-translate-y-0.5 hover:bg-gray-900 hover:text-white hover:shadow-[6px_6px_0px_#111]"
+                        className="group inline-flex items-center gap-2 border-2 border-gray-900 bg-white px-5 py-2.5 font-mono text-sm font-bold text-gray-900 shadow-[4px_4px_0px_#111] transition-all hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#111]"
                     >
                         <House
                             size={17}
@@ -31,7 +31,7 @@ export default function HeaderPage() {
                     {/* Projects */}
                     <Link
                         to="/Projects"
-                        className="group inline-flex items-center gap-2 border-2 border-gray-900 bg-white px-5 py-2.5 font-mono text-sm font-bold text-gray-900 shadow-[4px_4px_0px_#111] transition-all hover:-translate-y-0.5 hover:bg-gray-900 hover:text-white hover:shadow-[6px_6px_0px_#111]"
+                        className="group inline-flex items-center gap-2 border-2 border-gray-900 bg-white px-5 py-2.5 font-mono text-sm font-bold text-gray-900 shadow-[4px_4px_0px_#111] transition-all hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#111]"
                     >
                         Projects
                         <BriefcaseBusiness

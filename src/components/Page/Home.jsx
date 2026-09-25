@@ -133,10 +133,6 @@ function Home() {
                         <div className="mt-10">
                             <a
                                 href="#about"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    document.getElementById('about')?.scrollIntoView({behavior: 'smooth'});
-                                }}
                                 className="inline-block bg-blue-700 px-8 py-3 font-pixel text-lg font-black text-white shadow-[6px_6px_0px_#111] transition-all hover:-translate-y-1 hover:bg-black hover:shadow-[8px_8px_0px_#111]"
                             >
                                 Go to About
