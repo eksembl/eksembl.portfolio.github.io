@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 
 import {SkillSection, languages, libraries} from './icon.jsx';
-import avatar from '../../assets/avatar.jpg';
+import avatar from '../../assets/avatar.gif';
 import telegramIcon from '../../assets/icon/Telegram.png';
 import discordIcon from '../../assets/icon/Discord.png';
 import facebookIcon from '../../assets/icon/Facebook.png';
@@ -77,7 +77,8 @@ function Home() {
                         <div className="mt-4 flex gap-3">
 
                             <a
-                                href="#"
+                                target="_blank"
+                                href="https://t.me/Mgll1337"
                                 aria-label="Telegram"
                                 className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-gray-900 bg-white transition-all hover:-translate-y-1 hover:shadow-[4px_4px_0px_#111]"
                             >
@@ -89,7 +90,8 @@ function Home() {
                             </a>
 
                             <a
-                                href="#"
+                                target="_blank"
+                                href="https://discord-tracker.com/tracker/user/1223731681161379911/#"
                                 aria-label="Discord"
                                 className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-gray-900 bg-white transition-all hover:-translate-y-1 hover:shadow-[4px_4px_0px_#111]"
                             >
@@ -101,6 +103,7 @@ function Home() {
                             </a>
 
                             <a
+                                target="_blank"
                                 href="#"
                                 aria-label="Facebook"
                                 className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-gray-900 bg-white transition-all hover:-translate-y-1 hover:shadow-[4px_4px_0px_#111]"
@@ -112,7 +115,8 @@ function Home() {
                                 />
                             </a>
                             <a
-                                href="#"
+                                target="_blank"
+                                href="https://github.com/eksembl"
                                 aria-label="githubIcon"
                                 className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-gray-900 bg-white transition-all hover:-translate-y-1 hover:shadow-[4px_4px_0px_#111]"
                             >
