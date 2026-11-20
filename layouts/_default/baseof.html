@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang | default "ru" }}">
+<head>
+  {{ block "title" . }}
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} :: {{ site.Title }}{{ end }}</title>
+  {{ end }}
+  {{ partial "head.html" . }}
+</head>
+<body>
+<a class="skip-link" href="#main">К содержанию</a>
+
+{{ $container := cond (site.Params.FullWidthTheme | default false) "container full" (cond (site.Params.CenterTheme | default false) "container center" "container") }}
+
+<div class="{{ $container }}{{ cond (site.Params.oneHeadingSize | default false) " headings--one-size" "" }}">
+
+  {{ partial "header.html" . }}
+
+  <div class="content" id="main">
+    {{ block "main" . }}
+    {{ end }}
+  </div>
+
+  {{ block "footer" . }}
+    {{ partial "footer.html" . }}
+  {{ end }}
+</div>
+
+</body>
+</html>

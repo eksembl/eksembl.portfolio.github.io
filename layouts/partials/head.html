@@ -1,0 +1,96 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0f0d">
+
+{{- $description := "" -}}
+{{- if .IsHome -}}
+  {{- $description = site.Params.subtitle -}}
+{{- else if .Description -}}
+  {{- $description = .Description -}}
+{{- else if .Summary -}}
+  {{- $description = .Summary -}}
+{{- else -}}
+  {{- $description = site.Params.subtitle -}}
+{{- end -}}
+{{- $description = $description | plainify | chomp | truncate 200 "" -}}
+
+<meta name="description" content="{{ $description }}" />
+<meta name="author" content="eksembl" />
+<meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ site.Params.Keywords }}{{ end }}" />
+{{ if .Params.noindex }}
+  {{ if or (eq (.Param "noindex") true) (eq (.Param "noindex") "true") }}
+    <meta name="robots" content="noindex" />
+  {{ end }}
+{{ else }}
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+{{ end }}
+<link rel="canonical" href="{{ .Permalink }}" />
+
+{{ template "_internal/google_analytics.html" . }}
+
+<link rel="preload" href="{{ "fonts/FiraCode-Latin.woff2" | absURL }}" as="font" type="font/woff2" crossorigin>
+
+{{ $css := resources.Match "css/*.css" }}
+{{ range $css }}
+  {{ if ne .Name "css/custom.css" }}
+    {{ $styles := . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+  {{ end }}
+{{ end }}
+
+{{ with resources.Get "css/custom.css" }}
+  {{ $custom := . | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $custom.RelPermalink }}" integrity="{{ $custom.Data.Integrity }}">
+{{ end }}
+
+{{ if (fileExists "static/terminal.css") -}}
+  <link rel="stylesheet" href="{{ "terminal.css" | absURL }}">
+{{- end }}
+{{ if (fileExists "static/style.css") -}}
+  <link rel="stylesheet" href="{{ "style.css" | absURL }}">
+{{- end }}
+
+<!-- Icons & manifest -->
+<link rel="icon" href="{{ "favicon.svg" | absURL }}" type="image/svg+xml">
+<link rel="icon" href="{{ "favicon.png" | absURL }}" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
+<link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ $description }}">
+
+{{- $cover := "og-image.png" -}}
+{{- with .Params.cover -}}{{- $cover = . -}}{{- end -}}
+{{- $ogImage := $cover | absURL -}}
+
+<!-- Open Graph -->
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:site_name" content="{{ site.Title }}" />
+<meta property="og:image" content="{{ $ogImage }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:image" content="{{ $ogImage }}">
+
+{{ range .Params.categories }}
+  <meta property="article:section" content="{{ . }}" />
+{{ end }}
+{{ if isset .Params "date" }}
+  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" />
+  <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" />
+{{ end }}
+
+<!-- RSS -->
+{{ with .OutputFormats.Get "RSS" }}
+  <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ site.Title }}" />
+{{ end }}
+
+{{ partial "schema.html" . }}
+
+{{ partial "extended_head.html" . }}

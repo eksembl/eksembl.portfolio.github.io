@@ -1,0 +1,35 @@
+{{ define "main" }}
+  {{ with .Content }}
+    <div class="index-content{{ if $.Params.framed }} framed{{ end }}">
+      {{ . }}
+    </div>
+  {{ end }}
+
+  {{ $projects := where site.RegularPages "Type" "projects" }}
+  {{ with $projects }}
+    <section class="home-section" aria-labelledby="projects-heading">
+      <h2 class="home-section__title" id="projects-heading"><span class="prompt">$</span> ls projects</h2>
+      <div class="project-grid">
+        {{ range first 6 . }}
+          {{ partial "project-card.html" . }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
+  {{ $posts := where site.RegularPages "Type" "posts" }}
+  {{ with $posts }}
+    <section class="home-section" aria-labelledby="posts-heading">
+      <h2 class="home-section__title" id="posts-heading"><span class="prompt">$</span> tail -n 3 notes</h2>
+      <ul class="home-post-list">
+        {{ range first 3 . }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+          </li>
+        {{ end }}
+      </ul>
+      <a class="home-more" href="{{ "/posts/" | relURL }}">все заметки →</a>
+    </section>
+  {{ end }}
+{{ end }}

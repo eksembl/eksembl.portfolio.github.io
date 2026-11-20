@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <div class="post not-found">
+    <h1 class="post-title">404 — команда не найдена</h1>
+
+    <div class="post-content">
+      <pre><code>eksembl@dev:~$ cd /this-page
+bash: cd: /this-page: <span class="error">No such file or directory</span></code></pre>
+
+      <p>Страница удалена, переименована или никогда не существовала.</p>
+
+      <p>
+        <a href="{{ "/" | relURL }}">← вернуться на главную</a> ·
+        <a href="{{ "/projects/" | relURL }}">проекты</a> ·
+        <a href="{{ "/about/" | relURL }}">обо мне</a>
+      </p>
+    </div>
+  </div>
+{{ end }}

@@ -1,0 +1,68 @@
+baseURL = 'https://eksembl.dev/'
+languageCode = 'ru'
+title = 'eksembl — Full-Stack Developer'
+theme = 'terminal'
+enableRobotsTXT = true
+timeZone = 'Europe/Kyiv'
+copyright = '© 2026 eksembl'
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  subtitle = 'Full-Stack разработчик: React, Node.js, Electron и Telegram-боты. Проекты, опыт и заметки.'
+  keywords = 'eksembl, Full-Stack, разработчик, React, Node.js, Electron, Telegram bots, TypeScript, портфолио'
+  contentTypeName = 'projects'
+  themeColor = 'green'
+  showMenuItems = 4
+  fullWidthTheme = false
+  centerTheme = true
+  readMore = 'Читать далее'
+  dateFormat = '02.01.2006'
+  menuMore = 'Ещё'
+  showLastUpdated = false
+  minuteReadingTime = 'мин чтения'
+  words = 'слов'
+  missingContentMessage = 'Страница не найдена'
+  missingBackButtonLabel = 'Вернуться на главную'
+
+  [params.logo]
+    logoText = 'eksembl@dev:~$'
+    logoHomeLink = '/'
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+    lineNos = false
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.7
+
+[[menu.main]]
+  identifier = 'projects'
+  name = 'Projects'
+  url = '/projects/'
+  weight = 1
+
+[[menu.main]]
+  identifier = 'posts'
+  name = 'Posts'
+  url = '/posts/'
+  weight = 2
+
+[[menu.main]]
+  identifier = 'about'
+  name = 'About'
+  url = '/about/'
+  weight = 3
+
+[[menu.main]]
+  identifier = 'github'
+  name = 'GitHub'
+  url = 'https://github.com/eksembl'
+  weight = 4
+  [menu.main.params]
+    newTab = true

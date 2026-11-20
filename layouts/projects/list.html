@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <div class="page-heading">
+    <h1>{{ .Title | default "Проекты" }}</h1>
+    <p class="page-lead">Веб-приложения, open-source интеграции и десктопные инструменты.</p>
+  </div>
+
+  {{ with .Content }}
+    <div class="index-content">{{ . }}</div>
+  {{ end }}
+
+  <div class="project-grid">
+    {{ range .RegularPages }}
+      {{ partial "project-card.html" . }}
+    {{ end }}
+  </div>
+{{ end }}

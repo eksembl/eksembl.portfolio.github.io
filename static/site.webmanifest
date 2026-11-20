@@ -1,0 +1,22 @@
+{
+  "name": "eksembl — Full-Stack Developer",
+  "short_name": "eksembl",
+  "description": "Портфолио Full-Stack разработчика: проекты, опыт и заметки.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f0d",
+  "theme_color": "#0b0f0d",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
