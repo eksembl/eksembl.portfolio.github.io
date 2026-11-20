@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+    /* Основной санс-шрифт (Inter с фолбэком на Google Sans) */
+    --font-sans: "Inter", "Google Sans", sans-serif;
+
+    /* Кастомный пиксельный шрифт */
+    --font-pixel: "Pixelify Sans", sans-serif;
+}
+
+:root {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+}
