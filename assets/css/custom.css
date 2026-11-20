@@ -153,11 +153,7 @@ button:focus-visible,
   transition: border-color 0.15s linear, background-color 0.15s linear;
 }
 
-.project-card:hover {
-  border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 4%, transparent);
-  text-decoration: none;
-}
+.project-card:hover { border-color: var(--accent); text-decoration: none; }
 
 .project-card__bar {
   display: flex;
@@ -182,18 +178,6 @@ button:focus-visible,
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.project-card__path::after {
-  content: "_";
-  margin-left: 2px;
-  color: var(--accent);
-  animation: blink 1.2s step-end infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
 }
 
 .project-card__cover {
@@ -213,33 +197,17 @@ button:focus-visible,
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 8px;
-  padding: 14px 14px 16px;
+  gap: 6px;
+  padding: 10px 14px 12px;
 }
 
-.project-card__title {
-  margin: 0;
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--foreground);
-}
 
-.project-card__title::before {
-  content: "> ";
-  color: var(--accent);
-}
 
-.project-card:hover .project-card__title {
-  color: var(--accent);
-}
 
-.project-card__desc {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.8rem;
-  line-height: 1.55;
-}
+
+.project-card:hover 
+
+
 
 .project-card__meta {
   display: flex;
@@ -446,9 +414,7 @@ button:focus-visible,
     transition: none;
   }
 
-  .project-card__path::after {
-    animation: none;
-  }
+  
 }
 
 @media (max-width: 680px) {
