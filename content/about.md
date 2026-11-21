@@ -14,7 +14,7 @@ description = 'eksempl — Full-Stack разработчик: React, Node.js, El
   </div>
 </div>
 
-Проектирую и разрабатываю веб-приложения, REST API, Telegram-ботов и десктопные приложения. Люблю чистые интерфейсы, понятную архитектуру и решения, которые реально работают.
+Делаю веб-приложения, API, Telegram-ботов и десктопные приложения. Помогаю запускать проекты под ключ — от идеи и прототипа до деплоя и поддержки.
 
 ---
 
@@ -33,23 +33,41 @@ description = 'eksempl — Full-Stack разработчик: React, Node.js, El
   <li><img src="/icons/skills/bash.svg" alt="" loading="lazy" width="24" height="24">Bash</li>
 </ul>
 
-**Фреймворки и инструменты**
+**Фронтенд**
 
 <ul class="skill-grid">
   <li><img src="/icons/skills/react.svg" alt="" loading="lazy" width="24" height="24">React</li>
   <li><img src="/icons/skills/reactrouter.svg" alt="" loading="lazy" width="24" height="24">React Router</li>
+  <li><img src="/icons/skills/astro.svg" alt="" loading="lazy" width="24" height="24">Astro</li>
+  <li><img src="/icons/skills/vite.svg" alt="" loading="lazy" width="24" height="24">Vite</li>
+  <li><img src="/icons/skills/tailwindcss.svg" alt="" loading="lazy" width="24" height="24">Tailwind CSS</li>
+  <li><img src="/icons/skills/hugo.svg" alt="" loading="lazy" width="24" height="24">Hugo</li>
+</ul>
+
+**Бэкенд и инструменты**
+
+<ul class="skill-grid">
   <li><img src="/icons/skills/nodejs.svg" alt="" loading="lazy" width="24" height="24">Node.js</li>
+  <li><img src="/icons/skills/express.svg" alt="" loading="lazy" width="24" height="24">Express.js</li>
   <li><img src="/icons/skills/bun.svg" alt="" loading="lazy" width="24" height="24">Bun</li>
   <li><img src="/icons/skills/electron.svg" alt="" loading="lazy" width="24" height="24">Electron</li>
-  <li><img src="/icons/skills/tailwindcss.svg" alt="" loading="lazy" width="24" height="24">Tailwind CSS</li>
+  <li><img src="/icons/skills/medusa.svg" alt="" loading="lazy" width="24" height="24">Medusa v2</li>
+  <li><img src="/icons/skills/better-auth.svg" alt="" loading="lazy" width="24" height="24">Better Auth</li>
 </ul>
 
 **Инфраструктура и данные**
 
-- Docker, Linux, Git, GitHub Actions
-- Cloudflare (Pages, Workers, D1, R2)
-- SQLite / PostgreSQL, Better Auth, REST API
-- PHP (WordPress, WooCommerce)
+<ul class="skill-grid">
+  <li><img src="/icons/skills/docker.svg" alt="" loading="lazy" width="24" height="24">Docker</li>
+  <li><img src="/icons/skills/linux.svg" alt="" loading="lazy" width="24" height="24">Linux</li>
+  <li><img src="/icons/skills/git.svg" alt="" loading="lazy" width="24" height="24">Git</li>
+  <li><img src="/icons/skills/github.svg" alt="" loading="lazy" width="24" height="24">GitHub Actions</li>
+  <li><img src="/icons/skills/cloudflare.svg" alt="" loading="lazy" width="24" height="24">Cloudflare</li>
+  <li><img src="/icons/skills/postgresql.svg" alt="" loading="lazy" width="24" height="24">PostgreSQL</li>
+  <li><img src="/icons/skills/sqlite.svg" alt="" loading="lazy" width="24" height="24">SQLite</li>
+  <li><img src="/icons/skills/php.svg" alt="" loading="lazy" width="24" height="24">PHP</li>
+  <li><img src="/icons/skills/wordpress.svg" alt="" loading="lazy" width="24" height="24">WordPress / WooCommerce</li>
+</ul>
 
 ---
 

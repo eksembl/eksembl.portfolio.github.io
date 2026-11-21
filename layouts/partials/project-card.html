@@ -1,20 +1,16 @@
-{{- $path := .File.ContentBaseName | default (.Title | urlize) -}}
 <a class="project-card" href="{{ .RelPermalink }}">
-  <div class="project-card__bar" aria-hidden="true">
-    <span class="project-card__dots">● ● ●</span>
-    <span class="project-card__path">~/projects/{{ $path }}</span>
-  </div>
-  {{ with .Params.cover }}
-    <img class="project-card__cover" src="{{ . | absURL }}" alt="Preview {{ $.Title }}" loading="lazy">
-  {{ end }}
-  <div class="project-card__meta">
+  <span class="project-card__prompt" aria-hidden="true">&gt;</span>
+  <span class="project-card__body">
+    <span class="project-card__title">{{ .Title }}</span>
+    {{ with .Description }}
+      <span class="project-card__desc">{{ . }}</span>
+    {{ end }}
     {{ with .Params.tags }}
       <span class="project-card__tags">
         {{- range $i, $tag := first 4 . -}}
-          {{- if $i }} {{ end -}}#{{ . }}
+          {{- if $i }} {{ end -}}#{{ $tag }}
         {{- end -}}
       </span>
     {{ end }}
-    <span class="project-card__more">[ open ]</span>
-  </div>
+  </span>
 </a>
